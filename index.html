@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A/B Testing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>A/B Testing Analysis Report: Unveiling User Interactions</h1>
+    </header>
+    <main>
+        <section id="introduction">
+            <h2>Welcome to Our A/B Test</h2>
+            <p>
+                We conducted an A/B test to see if we could design a webpage that helps users find what they're looking for more quickly. This test compares two versions: the original and a redesigned version focused on improving navigation.
+            </p>
+        </section>
+        
+        <section id="ab-studio">
+            <h2>Our Experiment</h2>
+            <p>
+                The experiment involved two versions: Version A (our original page) and Version B (our redesigned page). The goal of Version B was to make it easier for users to find their target quickly. Below are the screenshots of Version A and Version B:
+            </p>
+            <div id="image">
+                <img src="version A.png" alt="Screenshot of the original site">
+                <p>Version A</p>
+                <img src="version B.png" alt="Screenshot of the redesigned site">
+                <p>Version B</p>
+            </div>
+        </section>
+        
+    
+        <section id="hypotheses">
+            <h2>Hypotheses</h2>
+        
+            <!-- Did Misclick -->
+            <div>
+                <h3>Misclick Rate</h3>
+                <img src="data misclick.png" alt="data of misclick">
+                <p><strong>Null Hypothesis (H0):</strong> The misclick rate is the same for both version A and version B of the webpage.</p>
+                <p><strong>Alternative Hypothesis (H1):</strong> Version B of the webpage has a lower misclick rate than version A.</p>
+                <p><strong>Reasoning for Alternative Hypothesis:</strong> The design changes in version B were intended to make navigation more intuitive, potentially leading to fewer misclicks as users can find their intended targets more easily.</p>
+                <p><strong>Prediction with Justification:</strong> We anticipate rejecting the null hypothesis, as the streamlined design of version B should result in a lower rate of misclicks.</p>
+            </div>
+        
+            <!-- Time on Page -->
+            <div>
+                <h3>Time on Page</h3>
+                <img src="data time.png" alt="data of time on page">
+                <p><strong>Null Hypothesis (H0):</strong> There is no difference in the average time spent on the page between versions A and B.</p>
+                <p><strong>Alternative Hypothesis (H1):</strong> Users spend less time on average on version B of the webpage compared to version A.</p>
+                <p><strong>Reasoning for Alternative Hypothesis:</strong> If version B effectively guides users to their desired actions faster, the average time spent on the page should decrease, reflecting an improvement in usability and efficiency.</p>
+                <p><strong>Prediction with Justification:</strong> We are inclined to reject the null hypothesis, expecting that the design improvements in version B lead to a noticeable reduction in time on page.</p>
+            </div>
+        
+            <!-- Mouse Move Distance -->
+            <div>
+                <h3>Mouse Move Distance</h3>
+                <img src="data mouse.png" alt="data of mouse move distance">
+                <p><strong>Null Hypothesis (H0):</strong> The mouse move distance is the same for users interacting with both version A and version B of the webpage.</p>
+                <p><strong>Alternative Hypothesis (H1):</strong> Version B of the webpage results in a lower mouse move distance than version A.</p>
+                <p><strong>Reasoning for Alternative Hypothesis:</strong> By making the user interface more direct and less cluttered, version B aims to reduce the need for extensive mouse movements, thereby increasing navigation efficiency.</p>
+                <p><strong>Prediction with Justification:</strong> We predict rejecting the null hypothesis, as the improvements in version B are expected to significantly decrease the distance users need to move their mouse to find clickable elements.</p>
+            </div>
+        </section>
+        
+        <section id="statistical-test">
+            <h2>Statistical Test</h2>
+            
+            <!-- Did Misclick - Chi-Squared Test -->
+            <div>
+                <h3>Misclick Rate</h3>
+                <p><strong>Test Choice ＆ Why: </strong>The Chi-Squared Test was selected to compare the misclick rates between versions A and B. This test is appropriate for categorical data, like our binary misclick outcomes.</p>
+                <img src="misclick.png" alt="Misclick rate analysis">
+                <ul>
+                    <li><strong>Chi-Squared Statistic:</strong> 3.689863013 indicates the observed data's deviation from the expected if no change had occurred. Closer values to 0 would indicate less deviation.</li>
+                    <li><strong>Degrees of Freedom (df):</strong> 1, a function of the number of categories minus one.</li>
+                    <li><strong>P-value:</strong> 0.05474411218, which is slightly above 0.05, suggests that while there is a trend towards improvement in version B, it is not statistically significant at the 5% level.</li>
+                </ul>
+                <p><strong>Conclusion: </strong>Based on the P-value of 0.05474411218, which is more than the standard significance level of 0.05, we fail to reject the null hypothesis, suggesting that the change in misclick rates between versions A and B is not statistically significant.</p>
+            </div>
+        
+            <!-- Time on Page - One-Tailed T-Test -->
+            <div>
+                <h3>Time on Page</h3>
+                <p><strong>Test Choice & Why: </strong>A One-Tailed T-Test was conducted to assess if version B of the webpage significantly decreases the mouse movement distance, aiming to validate our hypothesis that version B enhances user experience by requiring less navigation effort.</p>
+                <img src="time.png" alt="Time on page analysis">
+                <ul>
+                    <li><strong>T-score:</strong> 1.712585124, reflecting the direction and magnitude of the difference in means. Positive values indicate version B had lower times on page on average.</li>
+                    <li><strong>Degrees of Freedom:</strong> 43.2296531, calculated from our sample sizes, which impacts the critical value needed for significance.</li>
+                    <li><strong>P-value (Adjusted for the intended direction, B < A):</strong> 1 - 0.9530229715 = 0.0469770285, indicates significant evidence that version B reduces mouse movement compared to version A, supporting our hypothesis.</li>
+                </ul>
+                <p><strong>Conclusion: </strong>Based on the adjusted P-value of 0.0469770285, which is less than the standard significance level of 0.05, we find statistically significant evidence that the alternative hypothesis is true, concluding that version B of the webpage significantly improves user experience by reducing navigation effort compared to version A.</p>
+            </div>
+            
+        
+            <!-- Mouse Move Distance - One-Tailed T-Test -->
+            <div>
+                <h3>Mouse Move Distance</h3>
+                <p><strong>Test Choice ＆ Why: </strong>The One-Tailed T-Test was appropriate for assessing whether the redesign in version B resulted in a significant reduction in mouse move distance, suggesting more efficient navigation.</p>
+                <img src="mouse.png" alt="Mouse move distance analysis">
+                <ul>
+                    <li><strong>T-score:</strong> 1.911590573, which indicates the difference in means is in favor of version B, suggesting reduced mouse movement.</li>
+                    <li><strong>Degrees of Freedom:</strong> 61.64649621, which affects the distribution used to determine the p-value.</li>
+                    <li><strong>P-value (After adjusting for the intended direction, B < A):</strong> 1−0.9697100383 = 0.0302899617, indicates significant evidence supporting that version B reduces mouse movement compared to version A.</li>
+                </ul>
+                <p><strong>Conclusion: </strong>Based on the adjusted P-value of 0.0302899617, which is less than the standard significance level of 0.05, we are confident that the alternative hypothesis is true, providing evidence that version B significantly reduces mouse movement, indicating improved navigation efficiency.</p>
+            </div>
+        </section>
+        
+    
+        <section id="summary-statistics">
+            <h2>Summary Statistics</h2>
+            <p>In our comparative analysis of user interactions with two versions of a webpage, we meticulously analyzed data from 34 data points for version A and 37 for version B across all metrics, indicating a solid foundation for our statistical conclusions. The analysis revealed a decrease in the <strong>average time</strong> on page from 12,860 for version A to 9,113 for version B, and in mouse movement distance from 4,007 to 2,978, highlighting version B’s enhanced user experience. The <strong>variances</strong> for time on page significantly dropped from 140,609,949 in version A to 24,097,853.98 in version B, and for mouse movement, from 6,401,849.319 to 3,738,366.765, indicating more consistent user behavior in version B. These results, supported by a substantial and specific dataset, clearly demonstrate the improvements in efficiency and navigation consistency brought by version B.</p>
+
+        </section>
+        
+        
+        
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>
