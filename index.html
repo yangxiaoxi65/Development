@@ -1,126 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A/B Testing</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Recommender - Handin Webpage</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>A/B Testing Analysis Report: Unveiling User Interactions</h1>
-    </header>
-    <main>
-        <section id="introduction">
-            <h2>Welcome to Our A/B Test</h2>
-            <p>
-                We conducted an A/B test to see if we could design a webpage that helps users find what they're looking for more quickly. This test compares two versions: the original and a redesigned version focused on improving navigation.
-            </p>
-        </section>
-        
-        <section id="ab-studio">
-            <h2>Our Experiment</h2>
-            <p>
-                The experiment involved two versions: Version A (our original page) and Version B (our redesigned page). The goal of Version B was to make it easier for users to find their target quickly. Below are the screenshots of Version A and Version B:
-            </p>
-            <div id="image">
-                <img src="version A.png" alt="Screenshot of the original site">
-                <p>Version A</p>
-                <img src="version B.png" alt="Screenshot of the redesigned site">
-                <p>Version B</p>
-            </div>
-        </section>
-        
-    
-        <section id="hypotheses">
-            <h2>Hypotheses</h2>
-        
-            <!-- Did Misclick -->
-            <div>
-                <h3>Misclick Rate</h3>
-                <img src="data misclick.png" alt="data of misclick">
-                <p><strong>Null Hypothesis (H0):</strong> The misclick rate is the same for both version A and version B of the webpage.</p>
-                <p><strong>Alternative Hypothesis (H1):</strong> Version B of the webpage has a lower misclick rate than version A.</p>
-                <p><strong>Reasoning for Alternative Hypothesis:</strong> The design changes in version B were intended to make navigation more intuitive, potentially leading to fewer misclicks as users can find their intended targets more easily.</p>
-                <p><strong>Prediction with Justification:</strong> We anticipate rejecting the null hypothesis, as the streamlined design of version B should result in a lower rate of misclicks.</p>
-            </div>
-        
-            <!-- Time on Page -->
-            <div>
-                <h3>Time on Page</h3>
-                <img src="data time.png" alt="data of time on page">
-                <p><strong>Null Hypothesis (H0):</strong> There is no difference in the average time spent on the page between versions A and B.</p>
-                <p><strong>Alternative Hypothesis (H1):</strong> Users spend less time on average on version B of the webpage compared to version A.</p>
-                <p><strong>Reasoning for Alternative Hypothesis:</strong> If version B effectively guides users to their desired actions faster, the average time spent on the page should decrease, reflecting an improvement in usability and efficiency.</p>
-                <p><strong>Prediction with Justification:</strong> We are inclined to reject the null hypothesis, expecting that the design improvements in version B lead to a noticeable reduction in time on page.</p>
-            </div>
-        
-            <!-- Mouse Move Distance -->
-            <div>
-                <h3>Mouse Move Distance</h3>
-                <img src="data mouse.png" alt="data of mouse move distance">
-                <p><strong>Null Hypothesis (H0):</strong> The mouse move distance is the same for users interacting with both version A and version B of the webpage.</p>
-                <p><strong>Alternative Hypothesis (H1):</strong> Version B of the webpage results in a lower mouse move distance than version A.</p>
-                <p><strong>Reasoning for Alternative Hypothesis:</strong> By making the user interface more direct and less cluttered, version B aims to reduce the need for extensive mouse movements, thereby increasing navigation efficiency.</p>
-                <p><strong>Prediction with Justification:</strong> We predict rejecting the null hypothesis, as the improvements in version B are expected to significantly decrease the distance users need to move their mouse to find clickable elements.</p>
-            </div>
-        </section>
-        
-        <section id="statistical-test">
-            <h2>Statistical Test</h2>
-            
-            <!-- Did Misclick - Chi-Squared Test -->
-            <div>
-                <h3>Misclick Rate</h3>
-                <p><strong>Test Choice ＆ Why: </strong>The Chi-Squared Test was selected to compare the misclick rates between versions A and B. This test is appropriate for categorical data, like our binary misclick outcomes.</p>
-                <img src="misclick.png" alt="Misclick rate analysis">
-                <ul>
-                    <li><strong>Chi-Squared Statistic:</strong> 3.689863013 indicates the observed data's deviation from the expected if no change had occurred. Closer values to 0 would indicate less deviation.</li>
-                    <li><strong>Degrees of Freedom (df):</strong> 1, a function of the number of categories minus one.</li>
-                    <li><strong>P-value:</strong> 0.05474411218, which is slightly above 0.05, suggests that while there is a trend towards improvement in version B, it is not statistically significant at the 5% level.</li>
-                </ul>
-                <p><strong>Conclusion: </strong>Based on the P-value of 0.05474411218, which is more than the standard significance level of 0.05, we fail to reject the null hypothesis, suggesting that the change in misclick rates between versions A and B is not statistically significant.</p>
-            </div>
-        
-            <!-- Time on Page - One-Tailed T-Test -->
-            <div>
-                <h3>Time on Page</h3>
-                <p><strong>Test Choice & Why: </strong>A One-Tailed T-Test was conducted to assess if version B of the webpage significantly decreases the mouse movement distance, aiming to validate our hypothesis that version B enhances user experience by requiring less navigation effort.</p>
-                <img src="time.png" alt="Time on page analysis">
-                <ul>
-                    <li><strong>T-score:</strong> 1.712585124, reflecting the direction and magnitude of the difference in means. Positive values indicate version B had lower times on page on average.</li>
-                    <li><strong>Degrees of Freedom:</strong> 43.2296531, calculated from our sample sizes, which impacts the critical value needed for significance.</li>
-                    <li><strong>P-value (Adjusted for the intended direction, B < A):</strong> 1 - 0.9530229715 = 0.0469770285, indicates significant evidence that version B reduces mouse movement compared to version A, supporting our hypothesis.</li>
-                </ul>
-                <p><strong>Conclusion: </strong>Based on the adjusted P-value of 0.0469770285, which is less than the standard significance level of 0.05, we find statistically significant evidence that the alternative hypothesis is true, concluding that version B of the webpage significantly improves user experience by reducing navigation effort compared to version A.</p>
-            </div>
-            
-        
-            <!-- Mouse Move Distance - One-Tailed T-Test -->
-            <div>
-                <h3>Mouse Move Distance</h3>
-                <p><strong>Test Choice ＆ Why: </strong>The One-Tailed T-Test was appropriate for assessing whether the redesign in version B resulted in a significant reduction in mouse move distance, suggesting more efficient navigation.</p>
-                <img src="mouse.png" alt="Mouse move distance analysis">
-                <ul>
-                    <li><strong>T-score:</strong> 1.911590573, which indicates the difference in means is in favor of version B, suggesting reduced mouse movement.</li>
-                    <li><strong>Degrees of Freedom:</strong> 61.64649621, which affects the distribution used to determine the p-value.</li>
-                    <li><strong>P-value (After adjusting for the intended direction, B < A):</strong> 1−0.9697100383 = 0.0302899617, indicates significant evidence supporting that version B reduces mouse movement compared to version A.</li>
-                </ul>
-                <p><strong>Conclusion: </strong>Based on the adjusted P-value of 0.0302899617, which is less than the standard significance level of 0.05, we are confident that the alternative hypothesis is true, providing evidence that version B significantly reduces mouse movement, indicating improved navigation efficiency.</p>
-            </div>
-        </section>
-        
-    
-        <section id="summary-statistics">
-            <h2>Summary Statistics</h2>
-            <p>In our comparative analysis of user interactions with two versions of a webpage, we meticulously analyzed data from 34 data points for version A and 37 for version B across all metrics, indicating a solid foundation for our statistical conclusions. The analysis revealed a decrease in the <strong>average time</strong> on page from 12,860 for version A to 9,113 for version B, and in mouse movement distance from 4,007 to 2,978, highlighting version B’s enhanced user experience. The <strong>variances</strong> for time on page significantly dropped from 140,609,949 in version A to 24,097,853.98 in version B, and for mouse movement, from 6,401,849.319 to 3,738,366.765, indicating more consistent user behavior in version B. These results, supported by a substantial and specific dataset, clearly demonstrate the improvements in efficiency and navigation consistency brought by version B.</p>
+  <header>
+    <h1>Movie Recommender</h1>
+    <p>A React application for movie exploration and recommendation</p>
+  </header>
 
-        </section>
-        
-        
-        
-    </main>
-    <footer>
-    </footer>
+  <main>
+    <section id="intro">
+      <h2>Project Introduction</h2>
+      <p>The Movie Recommender is a web application that allows users to discover, filter, sort, and save their favorite movies. It provides a user-friendly interface for movie enthusiasts to find movies based on their preferences and explore new titles.</p>
+    </section>
+
+    <section id="competitive-analysis">
+      <h2>Competitive Analysis</h2>
+      <p>To inform the design and functionality of the Movie Recommender, a competitive analysis was conducted on three popular movie websites: IMDb, Rotten Tomatoes, and Metacritic. The analysis focused on several key aspects, including filtering options, sorting capabilities, user experience, and movie information presentation.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Website</th>
+            <th class="left-padding">Most Successful Factors</th>
+            <th class="left-padding">Least Successful Factors</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.imdb.com/" target="_blank">IMDb</a></td>
+            <td>
+              <ul>
+                <li>Comprehensive filtering options by genre, year, rating, and more</li>
+                <li>Detailed movie pages with cast, plot summary, user reviews, and ratings</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Potentially overwhelming interface for some users</li>
+                <li>User reviews may contain spoilers or irrelevant content</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a></td>
+            <td>
+              <ul>
+                <li>Clear and visually appealing design</li>
+                <li>Emphasis on critic and audience scores</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Rating system may not always reflect individual tastes</li>
+                <li>Discoverability of some features could be improved</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.metacritic.com/" target="_blank">Metacritic</a></td>
+            <td>
+              <ul>
+                <li>Aggregates reviews from multiple sources</li>
+                <li>Provides Metascores for quick assessment</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Minimalistic design may oversimplify some information</li>
+                <li>User-generated content could be better organized and presented</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Based on the analysis, several key insights were gained:</p>
+      <ul>
+        <li>Providing comprehensive filtering options allows users to narrow down their movie choices effectively.</li>
+        <li>Offering multiple sorting criteria caters to different user preferences and enhances movie discovery.</li>
+        <li>A clean and intuitive user interface improves the overall user experience and encourages exploration.</li>
+        <li>Presenting detailed movie information, including ratings, reviews, and plot summaries, helps users make informed decisions.</li>
+      </ul>
+      <p>These insights were incorporated into the design and development of the Movie Recommender application.</p>
+
+      <h3>Lessons Learned</h3>
+      <p>While each website has its strengths, there are also areas where they could improve. The Movie Recommender aims to address these weaknesses by:</p>
+      <ul>
+        <li>Designing an intuitive, easy-to-navigate interface that ensures users can easily find desired filtering and sorting options.</li>
+        <li>Developing a personalized recommendation system that provides tailored movie suggestions based on users' individual tastes and viewing history.</li>
+        <li>Enhancing user review and rating mechanisms to offer meaningful feedback while minimizing spoilers and irrelevant content.</li>
+        <li>Providing richer, more easily discoverable movie information, such as behind-the-scenes content and actor interviews, to deepen user engagement and interest.</li>
+      </ul>
+      <p>By learning from the strengths and weaknesses of popular movie websites, the Movie Recommender strives to create a more user-friendly and feature-rich movie recommendation experience.</p>
+    </section>
+
+    <section id="image">
+      <img src="movie-recommender-screenshot.png" alt="Movie Recommender Screenshot">
+    </section>
+
+    <section id="features">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Filter movies by genre and release year</li>
+        <li>Sort movies by rating</li>
+        <li>Add movies to favorites list</li>
+        <li>Remove movies from favorites list</li>
+        <li>Display total count of favorite movies</li>
+        <li>Reset filters and sorting</li>
+      </ul>
+    </section>
+
+    <section id="demo">
+      <h2>Live Demo</h2>
+      <p>Experience the Movie Recommender application live by visiting the deployed website:</p>
+      <a href="https://movie-recommender-tau.vercel.app/" target="_blank">https://movie-recommender-tau.vercel.app/</a>
+    </section>
+
+    <section id="reflection">
+      <h2>Reflection</h2>
+      <p>Developing the Movie Recommender application was a valuable learning experience. It provided an opportunity to apply the concepts of filtering, sorting, and aggregation in a practical context. The project also reinforced the importance of user-centric design, focusing on creating an intuitive and visually appealing interface.</p>
+      <p>One of the challenges encountered during the development process was ensuring the compatibility and smooth interaction between different filtering and sorting options. Careful planning and testing were crucial to achieve a seamless user experience.</p>
+      <p>The competitive analysis conducted prior to the development helped in identifying key features and best practices in movie recommendation websites. Incorporating these insights into the Movie Recommender application enhanced its functionality and usability.</p>
+      <p>Overall, the Movie Recommender project demonstrated the power of combining front-end development skills with design principles to create an engaging and user-friendly application. It serves as a foundation for further exploration and potential enhancements in the future.</p>
+    </section>
+  </main>
+
+  <footer>
+  </footer>
 </body>
 </html>
